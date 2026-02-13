@@ -4,6 +4,7 @@ from sqlalchemy.orm import Session
 
 from app.core.security import create_access_token, get_password_hash, verify_password
 from app.db import get_db
+from app.dependencies import get_current_user
 from app.models import User
 from app.schemas import Token, UserCreate, UserPublic
 
@@ -42,7 +43,6 @@ def login(
 
 
 @router.get("/me", response_model=UserPublic)
-def read_me(current_user: User = Depends("app.dependencies.get_current_user")):
-    # FastAPI подставит зависимость по строковому пути
+def read_me(current_user: User = Depends(get_current_user)):
     return current_user
 

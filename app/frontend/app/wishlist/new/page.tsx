@@ -3,7 +3,7 @@
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
+import { getApiUrl } from "../../lib/api";
 
 export default function NewWishlistPage() {
   const router = useRouter();
@@ -23,7 +23,7 @@ export default function NewWishlistPage() {
       if (!token) {
         throw new Error("Необходимо войти");
       }
-      const res = await fetch(`${API_URL}/wishlists`, {
+      const res = await fetch(getApiUrl("/wishlists"), {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

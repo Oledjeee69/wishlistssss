@@ -2,31 +2,34 @@ import Link from "next/link";
 
 export default function HomePage() {
   return (
-    <main className="flex min-h-[70vh] flex-col items-center justify-center gap-6 text-center">
-      <h1 className="text-3xl font-bold">Социальный вишлист</h1>
-      <p className="max-w-xl text-slate-600">
-        Создавайте списки желаний, делитесь ими с друзьями, резервируйте подарки
-        и скидывайтесь на дорогие — с realtime‑обновлениями и сюрпризом для
-        именинника.
-      </p>
-      <div className="flex flex-wrap items-center justify-center gap-3">
-        <Link
-          href="/auth/register"
-          className="rounded-lg bg-indigo-600 px-5 py-2.5 text-sm font-medium text-white shadow hover:bg-indigo-700"
-        >
-          Создать аккаунт
-        </Link>
-        <Link
-          href="/auth/login"
-          className="rounded-lg border border-slate-300 px-5 py-2.5 text-sm font-medium text-slate-800 hover:bg-white"
-        >
-          Войти
-        </Link>
+    <section className="flex min-h-[70vh] flex-col items-center justify-center gap-8 text-center">
+      <div className="rounded-2xl bg-white/90 p-8 shadow-lg shadow-amber-900/5">
+        <h1 className="text-3xl font-bold text-amber-900 sm:text-4xl">
+          Список желаний для вас и друзей
+        </h1>
+        <p className="mt-4 max-w-xl text-stone-600">
+          Создайте список подарков, поделитесь ссылкой — друзья смогут зарезервировать
+          подарок или скинуться на большой. Именинник не узнает, кто что взял.
+        </p>
+        <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
+          <Link
+            href="/auth/register"
+            className="rounded-xl bg-amber-600 px-6 py-3 text-sm font-medium text-white shadow-md hover:bg-amber-700"
+          >
+            Создать аккаунт
+          </Link>
+          <Link
+            href="/auth/login"
+            className="rounded-xl border-2 border-amber-200 bg-white px-6 py-3 text-sm font-medium text-amber-800 hover:bg-amber-50"
+          >
+            Войти
+          </Link>
+        </div>
+        <p className="mt-6 text-sm text-stone-500">
+          Вам прислали ссылку на вишлист? Откройте её в браузере — регистрация не нужна.
+        </p>
       </div>
-      <p className="text-xs text-slate-500">
-        Или откройте ссылку на вишлист, если вам её прислали.
-      </p>
-    </main>
+    </section>
   );
 }
 

@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "next/navigation";
 
 import { createWishlistSocket } from "../../../lib/ws";
-const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
+import { getApiUrl } from "../../../lib/api";
 
 interface Item {
   id: number;
@@ -49,7 +49,7 @@ export default function WishlistOwnerPage() {
     }
     async function load() {
       try {
-        const res = await fetch(`${API_URL}/wishlists/${wishlistId}`, {
+        const res = await fetch(getApiUrl(`/wishlists/${wishlistId}`), {
           headers: { Authorization: `Bearer ${token}` },
         });
         if (!res.ok) {
@@ -97,7 +97,7 @@ export default function WishlistOwnerPage() {
       return;
     }
     try {
-      const res = await fetch(`${API_URL}/items/wishlist/${wishlistId}`, {
+      const res = await fetch(getApiUrl(`/items/wishlist/${wishlistId}`), {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

@@ -11,8 +11,10 @@ body {
 }
 
 body {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
-    "Segoe UI", sans-serif;
+  font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+  background: linear-gradient(160deg, #fef7ed 0%, #fffbeb 35%, #fef3c7 100%);
+  min-height: 100vh;
+  color: #1c1917;
 }
 
 a {
@@ -22,5 +24,17 @@ a {
 
 button {
   font: inherit;
+  cursor: pointer;
+}
+
+/* Тематичные акценты: подарки, желания */
+:root {
+  --color-gift: #b45309;
+  --color-gift-hover: #92400e;
+  --color-wish: #d97706;
+  --color-cream: #fffbeb;
+  --color-card: rgba(255, 255, 255, 0.9);
+  --shadow-soft: 0 2px 8px rgba(180, 83, 9, 0.08);
+  --radius: 12px;
 }
 

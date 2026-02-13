@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "next/navigation";
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
+import { getApiUrl } from "../../lib/api";
 
 interface Contribution {
   id: number;
@@ -53,7 +53,7 @@ export default function PublicWishlistPage() {
   useEffect(() => {
     async function load() {
       try {
-        const res = await fetch(`${API_URL}/wishlists/public/${slug}`);
+        const res = await fetch(getApiUrl(`/wishlists/public/${slug}`));
         if (!res.ok) {
           throw new Error("Вишлист не найден");
         }
